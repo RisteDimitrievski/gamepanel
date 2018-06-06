@@ -1,0 +1,12 @@
+index:
+    path: /
+    controller: App\Controller\GlobalController::index
+login:
+    path: /login
+    controller: App\Controller\GlobalController::login
+register:
+    path: /register
+    controller: App\Controller\GlobalController::register
+lostpassword:
+    path: /recover
+    controller: App\Controller\GlobalController::lost
