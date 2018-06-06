@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+   <head>
+     <title>{{ websiteName }} - Login</title>
+	<style type="text/css">
+.signin-content {
+  max-width: 400px;
+  margin: 0 auto 40px;
+}
+label .error { float: none; color: red; padding-left: .5em; vertical-align: top; }
+</style>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/lib/bootstrap.css') }}"/>
+<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/lib/bootstrap-responsive.css') }}"/>
+<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/boo-extension.css') }}"/>
+<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/boo.css') }}"/>
+<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}"/>
+<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/boo-coloring.css') }}"/>
+<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/boo-utility.css') }}"/>
+<link rel="stylesheet" type="text/css" href="{{ asset('assets/plugins/bootstrap-modal/css/bootstrap-modal-bootheme.css') }}"/>
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ asset('assets/ico/apple-touch-icon-144-precomposed.png') }}">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ asset('assets/ico/apple-touch-icon-114-precomposed.png') }}">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ asset('assets/ico/apple-touch-icon-72-precomposed.png') }}">
+<link rel="apple-touch-icon-precomposed" href="{{ asset('assets/ico/apple-touch-icon-57-precomposed.png') }}">
+</head>
+<body class="signin signin-vertical">
+<div class="page-container">
+<div id="header-container">
+<div id="header">
+<div class="navbar-inverse navbar-fixed-top">
+<div class="navbar-inner">
+<div class="container"> </div>
+</div>
+</div>
+<div class="header-drawer" style="height:3px"></div>
+</div>
+</div>
+
+{% for message in app.flashes('message') %}
+<ul id="notyfy_container_top" class="notyfy_container"><li class="notyfy_wrapper notyfy_error" style="cursor: pointer"><div id="notyfy_679588911997027800" class="notyfy_bar"><div class="notyfy_message"><span class="notyfy_text"><strong>
+{{ message }}
+</strong></span></div></div></li></ul>
+{% endfor %}
+
+<div class="main-container">
+<div id="main-content" class="main-content container">
+
+<div class="signin-content">
+<h1 class="welcome text-center" style="line-height: 0.6"><small>{{ websiteName }}</small></h1>
+<div class="well well-nice form-dark">
+<div class="tab-content overflow">
+<div class="tab-pane fade in active" id="login">
+<h3 class="no-margin-top"><i class="fontello-icon-user-4"></i>Log in</h3>
+{{form_start(formLogin)}}
+<fieldset>
+<ul>
+<li>
+{{form_row(formLogin.email)}}
+</li>
+<li>
+{{form_row(formLogin.password)}}
+</li>
+</ul>
+{{form_row(formLogin.submit,{'attr': {'value': 'Login'} } )}}
+</fieldset>
+{{form_end(formLogin)}}
+</div>
+</div>
+</div>
+<a href="#responsive" name="open" data-toggle="modal" id="open" style="text-align:center" class="btn btn-envato btn-block btn-large">Register</a>
+</div>
+</div>
+<div class="footer well well-nice form-dark">
+<h5>Developed by <a href="">Riste Dimitrievski</a>. Design made by <a href="">Marapet</a></h5>
+</div>
+</div>
+
+<div id="responsive" class="modal hide fade in" role="dialog" tabindex="-1" data-width="750" aria-hidden="true" style="width: 460px; margin-left: -380px; display: none; margin-top: -296px;">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="false"><i class="fontello-icon-cancel-1"></i></button>
+            <h4>Registration</h4>
+        </div>
+        <div class="modal-body">
+            <div class="page-header">
+			    <p><span color="red"><b>Requirements:</b><br/>- An active Premium account in order to register in client area.<br/>-An valid email address associated with forum.</span></p>
+                <p><font color="red"><b>By clicking the button Register, you agree to our Terms Of Service and privacy data.</b></font></p>
+            </div>
+			
+            <div class="row-fluid">
+                <div class="span6">
+                    <h4>{{ websiteName }} - Register</h4>
+					
+					{{form(formRegister)}}
+					<ul class="form-list label-left list-bordered dotted">
+					<li class="control-group">
+					
+					<div class="controls">
+					{{form_row(formRegister.name)}}
+					</div>
+					</li>
+					<li class="control-group">
+					
+					<div class="controls">
+					{{form_row(formRegister.username)}}
+					</div>
+					</li>
+					<li class="control-group">
+					
+					<div class="controls">
+					{{form_row(formRegister.pass)}}
+					</div>
+					
+					<div class="controls">
+					{{form_row(formRegister.confirmpass)}}
+					</div>
+					</li>
+					<li class="control-group">
+					
+					<div class="controls">
+					{{form_row(formRegister.mail)}}
+					</div>
+					
+					<div class="controls">
+					{{form_row(formRegister.confirmmail)}}
+					</div>
+					</li>
+					<li class="control-roup">
+					
+					<div class="controls">
+					{{form_row(formRegister.pincode)}}
+					</div>
+					</li>
+					<li class="control-group">
+					
+					<div class="controls">
+					{{form_row(formRegister.country)}}
+				
+					</div>
+					
+					<div class="controls">
+					{{form_row(formRegister.address)}}
+					</div>
+					</li>
+					<div class="section-content footer">
+                    <button type="button" data-dismiss="modal" class="btn btn-boo">Close</button>
+					{{form_row(formRegister.submit)}}
+					</div>
+					
+					</div>
+					</div>
+					
+					{{form_end(formRegister)}}
+					</div>
+					
+			<script src="{{asset('assets/js/lib/jquery.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/js/lib/jquery-ui.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/js/lib/bootstrap/bootstrap.js')}}"></script>
+<script src="{{asset('assets/plugins/bootstrap-modal/js/bootstrap-modal.js')}}"></script>
+<script src="{{asset('assets/plugins/bootstrap-modal/js/bootstrap-modalmanager.js')}}"></script>
+					
